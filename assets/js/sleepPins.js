@@ -19,12 +19,25 @@ var MapBox = L.tileLayer('http://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
   accessToken: 'pk.eyJ1IjoibWFubnkiLCJhIjoiMzBCNHFQUSJ9.VQQ9ZSW7viFT1yLhLiWLSA'
 }).addTo(map);
 
-var locationSlept = omnivore.csv('assets/data/sleep.csv').addTo(map);
+// var locationSlept2015 = omnivore.csv('assets/data/2015sleep.csv').addTo(map);
+var locationSlept2016 = omnivore.csv('assets/data/2016sleep.csv').addTo(map);
+// var together = omnivore.csv('assets/data/together.csv').addTo(map);
 
-locationSlept.on('ready', function() {
-  locationSlept.eachLayer(function(layer) {
+// locationSlept2015.on('ready', function() {
+//   locationSlept2015.eachLayer(function(layer) {
+//     layer.bindPopup(layer.feature.properties.Date + ' ' + '<br>' + layer.feature.properties.Event + '<br>' + layer.feature.properties.Notes)
+//   })
+// }).addTo(map);
+
+locationSlept2016.on('ready', function() {
+  locationSlept2016.eachLayer(function(layer) {
     layer.bindPopup(layer.feature.properties.Date + ' ' + '<br>' + layer.feature.properties.Event + '<br>' + layer.feature.properties.Notes)
   })
 }).addTo(map);
 
+// together.on('ready', function() {
+//   together.eachLayer(function(layer) {
+//     layer.bindPopup(layer.feature.properties.Date + ' ' + '<br>' + layer.feature.properties.Event + '<br>' + layer.feature.properties.Notes)
+//   })
+// }).addTo(map);
 
